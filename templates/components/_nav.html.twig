@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{{ path('index') }}"> ActuNews </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <div class="navbar-nav mr-auto">
+            <a class="nav-link"
+               href="{{ path('default_category', { 'alias' : 'politique' }) }}">Politique</a>
+            <a class="nav-link"
+               href="{{ path('default_category', { 'alias' : 'economie' }) }}">Economie</a>
+            <a class="nav-link"
+               href="{{ path('default_category', { 'alias' : 'social' }) }}">Social</a>
+            <a class="nav-link"
+               href="{{ path('default_category', { 'alias' : 'sante' }) }}">Santé</a>
+            <a class="nav-link"
+               href="{{ path('default_category', { 'alias'  : 'culture' }) }}">Culture</a>
+            <a class="nav-link"
+               href="{{ path('default_category', { 'alias'  : 'sports' }) }}">Sports</a>
+            <a class="nav-link"
+               href="{{ path('default_category', { 'alias'  : 'loisirs' }) }}">Loisirs</a>
+
+
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+              <a class="nav-link" href="{{ path('post_create') }}">Créer un article</a>
+              <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+          {% else %}
+              <a class="nav-link" href="{{ path('user_create') }}">Inscription</a>
+              <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+          {% endif %}
+         </div>
+    </div>
+</nav>
